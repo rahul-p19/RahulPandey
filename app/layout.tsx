@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Work_Sans } from "next/font/google";
 import "./globals.css";
-import Menu from "@/components/menu/Menu";
+import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,10 +16,8 @@ const work_sans = Work_Sans({
 export const metadata: Metadata = {
   title: "Rahul Pandey",
   description: "Full Stack Web Developer",
-  // metadataBase: new URL("")
+  metadataBase: new URL("https://www.rahulpandey.tech")
 };
-
-// TODO: Update metadataBase property
 
 export default function RootLayout({
   children,
@@ -30,6 +29,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${work_sans.variable}`}>
         <Menu />
         {children}
+        <Footer />
         </body>
     </html>
   );

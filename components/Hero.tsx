@@ -34,7 +34,7 @@ function Hero() {
 
 	return (
 		<div
-			className="h-screen w-screen flex justify-center items-center overflow-clip"
+			className="h-screen flex justify-center items-center overflow-clip"
 			ref={container}>
 			<div className="flex flex-col items-center gap-y-6 w-4/5 sm:w-1/2">
 				<Image
