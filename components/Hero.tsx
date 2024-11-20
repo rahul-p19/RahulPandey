@@ -1,9 +1,8 @@
 "use client";
 import Image from "next/image";
-import React, { useRef, useEffect, useCallback, useState } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import Particles from "@tsparticles/react";
 
 gsap.registerPlugin(useGSAP);
 
