@@ -27,6 +27,7 @@ function Hero() {
 				duration: 2,
 				ease: "expo.inOut",
 				delay: 0,
+				opacity: 0
 			});
 		},
 		{ scope: container }
