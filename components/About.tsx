@@ -24,6 +24,11 @@ const aboutCards = [
 		alt: "Mussoorie",
 		text: "I love travelling and playing or watching sports.",
 	},
+	{
+		image: "/aurobindo-bhavan.jpg",
+		alt: "College Clubs",
+		text: "I'm a Coordinator at JU E-Cell, and a member of the Tech Team at IEEE JUSB - mostly building websites in both roles.",
+	},
 ];
 
 function About() {
@@ -47,7 +52,7 @@ function About() {
 			});
 
 			gsap.to(processRef.current, {
-				xPercent: -33.5 * (processItemsRef.current.length - 1),
+				xPercent: -25 * (processItemsRef.current.length - 1),
 				ease: "none",
 				scrollTrigger: {
 					trigger: processRef.current,
