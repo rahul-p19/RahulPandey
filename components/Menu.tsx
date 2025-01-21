@@ -50,7 +50,7 @@ function Menu() {
 			label: "LinkedIn",
 		},
 		{ path: "https://github.com/rahul-p19", label: "GitHub" },
-		{ path: "https://leetcode.com/u/rahul_p2005/", label: "LeetCode" },
+		{ path: "https://leetcode.com/u/rahul-p19/", label: "LeetCode" },
 	];
 
 	return (
