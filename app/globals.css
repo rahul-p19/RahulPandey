@@ -24,16 +24,6 @@ body {
 	background: transparent;
 }
 
-.landing-bg {
-	background-attachment: fixed;
-	background-image: linear-gradient(
-			rgba(255, 255, 255, 0.1) 0.01em,
-			transparent 0.1em
-		),
-		linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0.01em, transparent 0.1em);
-	background-size: 1.75em 1.75em;
-}
-
 .title {
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }

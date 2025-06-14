@@ -96,7 +96,7 @@ function Page() {
 
 	return (
 		<div
-			className="flex flex-col gap-y-12 py-6 min-h-screen w-full overflow-x-hidden landing-bg"
+			className="flex flex-col gap-y-12 py-6 min-h-screen w-full overflow-x-hidden bg-[radial-gradient(#e5e7eb10_1px,transparent_1px)] [background-size:26px_26px]"
 			id="about"
 			ref={projectContainerRef}>
 			<div className="flex justify-center">
