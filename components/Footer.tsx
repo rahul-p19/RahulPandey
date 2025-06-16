@@ -22,9 +22,7 @@ function Footer() {
 		<footer className="bg-red overflow-clip flex flex-col px-[10vw]" id="contact">
 			<div className="flex justify-center sm:justify-between items-center py-6">
                 <div className="flex flex-col items-center sm:items-start">
-                    <h2 className="font-inter font-bold text-4xl sm:text-5xl my-6">Rahul Pandey</h2>
-                    <p className="text-sm font-semibold font-worksans uppercase">Email</p>
-                    <Link href="mailto:pandeyrahul.work@gmail.com" className="font-worksans underline underline-offset-1 font-medium hover:font-semibold">pandeyrahul.work@gmail.com</Link>
+                    <h2 className="font-dmsans font-bold text-4xl sm:text-5xl my-6">Rahul Pandey</h2>
                 </div>
                 <nav className="hidden sm:flex flex-col">
 					{menuLinks.map((link, ind) => (

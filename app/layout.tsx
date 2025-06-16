@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Work_Sans } from "next/font/google";
+import { Inter, Work_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
@@ -12,6 +12,10 @@ const work_sans = Work_Sans({
   subsets: ["latin"],
   variable: "--font-worksans"
 });
+const dm_sans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dmsans"
+})
 
 export const metadata: Metadata = {
   title: "Rahul Pandey",
@@ -26,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${work_sans.variable}`}>
+      <body className={`${inter.variable} ${work_sans.variable} ${dm_sans.variable}`}>
         <Menu />
         {children}
         <Footer />

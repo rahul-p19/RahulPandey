@@ -40,7 +40,7 @@ function Menu() {
 	const menuLinks = [
 		{ path: "/", label: "Home" },
 		{ path: "/#about", label: "About" },
-		{ path: "/#contact", label: "Contact" },
+		{ path: "/contact", label: "Contact" },
 		{ path: "/projects", label: "Projects" },
 	];
 

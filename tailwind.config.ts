@@ -15,6 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         inter: "var(--font-inter)",
+        dmsans: "var(--font-dmsans)",
         worksans: "var(--font-worksans)"
       },
       colors: {

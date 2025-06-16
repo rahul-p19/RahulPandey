@@ -4,6 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { BsCardText } from "react-icons/bs";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
@@ -31,7 +32,7 @@ const aboutCards = [
 	},
 ];
 
-function About() {
+function Temp() {
 	const aboutContainerRef = useRef<HTMLDivElement | null>(null);
 	const processRef = useRef<HTMLDivElement | null>(null);
 	const processItemsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -102,6 +103,17 @@ function About() {
 			</div>
 		</div>
 	);
+}
+
+function About(){
+	return (
+		<div className="grid grid-cols-2 justify-items-center py-16">
+			<h1 className="text-3xl sm:text-5xl font-semibold" id="about">About Me</h1>
+			<div className="flex flex-col items-center gap-8 text-lg">
+				{aboutCards.map((card)=><p key={card.alt} className="w-3/4">{card.text}</p>)}
+			</div>
+		</div>
+	)
 }
 
 export default About;
