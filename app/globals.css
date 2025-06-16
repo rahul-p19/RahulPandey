@@ -59,3 +59,102 @@ body {
 a{
 	transition: color 0.3s;
 }
+
+/* FOR LANDING PAGE REVEAL ANIMATION */
+
+.preloader, .splitOverlay, .tagsOverlay{
+    position: fixed;
+    width: 100vw;
+    height: 100svh;
+}
+
+.preloader, .splitOverlay{
+    background-color: black;
+    color: white;
+}
+
+.preloader, .tagsOverlay{
+    z-index: 30;
+}
+
+.tagsOverlay{
+    color: gray;
+}
+
+.introTitle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
+
+.outroTitle{
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 10rem);
+    transform: translate(-50%, -50%);
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    clip-path: polygon(0% 48%, 0% 48%, 0% 52%, 0% 52%);
+    z-index: 30;
+}
+
+.card{
+    width: 30%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%);
+}
+
+.card .char span{
+    position: relative;
+    display: inline-block;
+    transform: translateY(100%);
+    will-change: transform;
+}
+
+.introTitle .char, .outroTitle .char, .card .char{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.introTitle .char, .outroTitle .char{
+    margin-top: 0.75rem;
+}
+
+.introTitle .char span, .outroTitle .char span, .tag .word{
+    position: relative;
+    display: inline-block;
+    transform: translateY(-100%);
+    will-change: transform;
+}
+
+.introTitle .firstChar{
+    transform-origin: top left;
+}
+
+@media (max-width: 1000px){
+    .outroTitle{
+        left: calc(50% + 4rem);
+    }
+
+    .card{
+        width: 75%;
+    }
+
+    .introTitle .char, .outroTitle .char{
+        margin-top: 0.5rem;
+    }
+}

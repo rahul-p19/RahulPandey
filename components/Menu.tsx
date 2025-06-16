@@ -56,7 +56,7 @@ function Menu() {
 	return (
 		<div ref={container}>
 			<button
-				className="text-white  hover:text-red transition-colors duration-150 text-xl fixed top-6 right-6 z-20"
+				className="text-white  hover:text-red transition-colors duration-150 text-xl fixed top-6 right-6 z-[31]"
 				onClick={()=>{setMenuOpen(true)}}>
 				<FaBars />
 			</button>
