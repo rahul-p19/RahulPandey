@@ -45,6 +45,8 @@ function Hero() {
 
 			const isMobile = window.innerWidth <= 1000;
 
+			gsap.set([".introTitle", ".outroTitle", ".tag"],{opacity: "100%"});
+
 			gsap.set(
 				[
 					".splitOverlay .introTitle .firstChar span",
@@ -180,7 +182,7 @@ function Hero() {
 			t1.to(
 				[".preloader", ".splitOverlay"],
 				{
-					y: (i) => (i === 0 ? "-50%" : "50%"),
+					y: (i) => (i === 0 ? "-60%" : "60%"),
 					duration: 1,
 				},
 				6
