@@ -164,3 +164,17 @@ a{
         margin-top: 0.5rem;
     }
 }
+
+/* For projects page */
+
+.slider{
+    perspective: 175px;
+    perspective-origin: 50% 100%;
+}
+
+.slider-card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

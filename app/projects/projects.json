@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "title": "InfinitIEEE",
+        "image": "/projects/quiz-question.jpg",
+        "stack": "Server Sent Events, TailwindCSS, NextJS, TypeScript, ExpressJS, Prisma, PostgreSQL",
+        "deployment": "https://hello.ieee-jaduniv.in",
+        "demo":"",
+        "repository": "https://github.com/rahul-p19/quiz-app",
+        "description": [
+            "Live quiz website for Hello IEEE, an offline event organised by IEEE JUSB.",
+            "Implemented an ExpressJS server to broadcast live questions to users, using Server Sent Events.",
+            "Developed role-based authentication using AuthJS for 500+ users.",
+            "Built an admin control panel to control live quiz questions.",
+            "Implemented quiz frontend using LocalStorage for persistent data."
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Srijan'25",
+        "image": "/projects/srijan.png",
+        "stack": "TailwindCSS, React-Three-Fiber, ReactJS, ExpressJS, Mongoose, MongoDB",
+        "deployment": "https://srijanju.in",
+        "demo":"",
+        "repository": "https://github.com/codeclubjusl/Srijan25_Frontend",
+        "description": [
+            "Live quiz website for Hello IEEE, an offline event organised by IEEE JUSB.",
+            "Implemented an ExpressJS server to broadcast live questions to users, using Server Sent Events.",
+            "Developed role-based authentication using AuthJS for 500+ users.",
+            "Built an admin control panel to control live quiz questions.",
+            "Implemented quiz frontend using LocalStorage for persistent data."
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Chill Town",
+        "image": "/projects/chilltown.png",
+        "stack": "PhaserJS, TailwindCSS, NextJS, TypeScript, ExpressJS, SocketIO, Simple-Peer, ColyseusJS",
+        "deployment": "",
+        "demo":"https://drive.google.com/file/d/1p2Rhx_1z0xi_zriPAvaBQkfaxIJ_LDFw/view?usp=sharing",
+        "repository": "https://github.com/Arnob-B/chill-town",
+        "description": [
+            "Live quiz website for Hello IEEE, an offline event organised by IEEE JUSB.",
+            "Implemented an ExpressJS server to broadcast live questions to users, using Server Sent Events.",
+            "Developed role-based authentication using AuthJS for 500+ users.",
+            "Built an admin control panel to control live quiz questions.",
+            "Implemented quiz frontend using LocalStorage for persistent data."
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Mock IPL Auction",
+        "image": "/projects/mock-ipl.jpeg",
+        "stack": "TailwindCSS, NextJS, TypeScript, AuthJS, Prisma, PostgreSQL",
+        "deployment": "",
+        "demo":"",
+        "repository": "https://github.com/Arnob-B/auction",
+        "description": [
+            "Live quiz website for Hello IEEE, an offline event organised by IEEE JUSB.",
+            "Implemented an ExpressJS server to broadcast live questions to users, using Server Sent Events.",
+            "Developed role-based authentication using AuthJS for 500+ users.",
+            "Built an admin control panel to control live quiz questions.",
+            "Implemented quiz frontend using LocalStorage for persistent data."
+        ]
+    },
+    {
+        "id": 5,
+        "title": "E-Summit'24",
+        "image": "/projects/esummit-hero.png",
+        "stack": "TailwindCSS, NextJS, TypeScript, Prisma, PostgreSQL",
+        "deployment": "https://esummit.juecell.com",
+        "demo":"",
+        "repository": "",
+        "description": [
+            "Implemented admin section to view and manage registrations.",
+            "Worked on user registration for 470+ users."
+        ]
+    },
+    {
+        "id": 6,
+        "title": "DoubleSlash 3.0",
+        "image": "/projects/doubleslash.png",
+        "stack": "TailwindCSS, NextJS, TypeScript, GSAP",
+        "deployment": "https://doubleslash3.ieee-jaduniv.in",
+        "demo": "",
+        "repository": "",
+        "description": [
+            "Implemented admin section to view and manage registrations.",
+            "Worked on user registration for 470+ users."
+        ]
+    }
+]

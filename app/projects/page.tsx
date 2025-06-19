@@ -1,146 +1,101 @@
-'use client';
-import React, {useRef} from 'react';
+"use client";
+import { useState, useRef } from "react";
 import gsap from "gsap";
-import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
-import { useGSAP } from '@gsap/react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { useGSAP } from "@gsap/react";
+import projects from "./projects.json";
+import Link from "next/link";
+import Image from "next/image";
 
 gsap.registerPlugin(useGSAP);
-gsap.registerPlugin(ScrollTrigger);
-
-const projects = [
-    {
-        title: "InfinitIEEE",
-		preview: "/projects/quiz-confirmation.jpg",
-		image: "/projects/quiz-question.jpg",
-        stack: "TailwindCSS, NextJS, TypeScript, ExpressJS, Prisma, PostgreSQL",
-		deployment: "https://hello.ieee-jaduniv.in",
-		repository: "https://github.com/rahul-p19/quiz-app",
-        description: [
-			"Live quiz website for Hello IEEE, an offline event organised by IEEE JUSB.",
-            "Implemented an ExpressJS server to broadcast live questions to users, using Server Sent Events.",
-            "Developed role-based authentication using AuthJS for 500+ users.",
-			"Built an admin control panel to control live quiz questions.",
-			"Implemented quiz frontend using LocalStorage for persistent data."
-        ]
-    },
-    {
-		title: "E-Summit'24",
-		preview: "/projects/esummit-logo.svg",
-		image: "/projects/esummit-hero.png",
-        stack: "TailwindCSS, NextJS, TypeScript, Prisma, PostgreSQL",
-		deployment: "https://esummit.juecell.com",
-		repository: "",
-        description: [
-			"Implemented admin section to view and manage registrations.",
-            "Worked on user registration for 470+ users.",
-        ]
-    },
-];
 
 function Page() {
-    const projectContainerRef = useRef<HTMLDivElement | null>(null);
-	const projectRightImages = useRef<(HTMLDivElement | null)[]>([]);
-	const projectLeftImages = useRef<(HTMLDivElement | null)[]>([]);
+	const sliderRef = useRef<HTMLDivElement>(null);
+	const [isAnimating, setIsAnimating] = useState(false);
 
-	const text = "Projects";
-	const splitText = text.split("").map((ch) => (ch === " " ? "\u00A0" : ch));
+	useGSAP( () => { initialiseCards() },{ scope: sliderRef });
 
-	useGSAP(
-		() => {
-
-			gsap.to(".text-char", {
-				y: 0,
-				stagger: 0.08,
-				duration: 0.5,
-				scrollTrigger: {
-					trigger: projectContainerRef.current,
-					start: "10% bottom",
-				},
+	const initialiseCards = () => {
+		const isMobile = window.innerWidth < 640; 
+		if (sliderRef.current) {
+			const cards = Array.from(
+				sliderRef.current?.querySelectorAll(".slider-card")
+			);
+			gsap.to(cards, {
+				y: (i) => isMobile ? -15 + 20 * i + "%" : - 35 + 15 * i + "%",
+				z: (i) => 5 * i,
+				duration: 1,
+				ease: "power3.out",
+				stagger: -0.1,
 			});
-
-			projectRightImages.current.forEach((img)=>{
-				gsap.to(img, {
-					clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-					delay: 1,
-					duration: 0.5,
-					scrollTrigger: {
-						trigger: img,
-						start: "top 75%",
-						end: "bottom 85%",
-						scrub: true
-					}
-				})
-			})
-			
-			projectLeftImages.current.forEach((img)=>{
-				gsap.to(img, {
-					clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-					delay: 1,
-					duration: 0.5,
-					scrollTrigger: {
-						trigger: img,
-						start: "top 75%",
-						end: "bottom 80%",
-						scrub: true
-					}
-				})
-			})
-
-		},
-		{
-			scope: projectContainerRef,
 		}
-	);
+	};
+
+	const handleClick = () => {
+		if (isAnimating) return;
+		setIsAnimating(true);
+
+		const slider = sliderRef.current;
+		if (!slider) return;
+		const cards = Array.from(slider.querySelectorAll(".slider-card"));
+		const lastCard = cards.pop();
+		if (!lastCard) return;
+
+		gsap.to(lastCard, {
+			y: "+=150%",
+			duration: 0.75,
+			ease: "power3.inOut",
+			onStart: () => {
+				setTimeout(() => {
+					slider.prepend(lastCard);
+					initialiseCards();
+					setTimeout(() => {
+						setIsAnimating(false);
+					}, 1000);
+				}, 300);
+			},
+		});
+	};
 
 	return (
 		<div
-			className="flex flex-col gap-y-12 py-6 min-h-screen w-full overflow-x-hidden bg-[radial-gradient(#e5e7eb10_1px,transparent_1px)] [background-size:26px_26px]"
-			id="about"
-			ref={projectContainerRef}>
-			<div className="flex justify-center">
-				<h1 className="font-inter text-white hover:text-red transition-colors duration-150 font-semibold text-6xl pt-6 pb-3 title text-center flex">
-					{splitText.map((ch, ind) => {
-						return (
-							<div
-								key={ind}
-								className="text-char translate-y-28 transition-transform duration-500">
-								{ch}
-							</div>
-						);
-					})}
-				</h1>
-			</div>
-			<div className='flex flex-col gap-y-3 items-center px-3 sm:px-0 text-center'>
-			<h2 className='text-xl font-inter text-white w-fit'>Some of the projects that I&apos;ve worked on so far</h2>
-			<h3 className='font-inter text-white w-fit'>Find more at <Link href={"https://github.com/rahul-p19"} target='_blank' className='hover:text-red text-white underline underline-offset-2'>my GitHub.</Link></h3>
-			</div>
-			<div className="project-container flex flex-col gap-y-16 items-center">
-				{projects.map((project,ind)=>
-					<div key={ind} className='w-full grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-y-0 items-center text-white'>
-							<Image src={project.preview} alt={project.title} width={200} height={150} className='justify-self-center sm:justify-self-end left-image' ref={(ref)=>{projectLeftImages.current[ind]=ref}} />
-							<h1 className='font-inter text-5xl font-bold pl-8'>{project.title}</h1>
-							<div className='flex flex-col gap-y-6 items-center justify-center text-center px-4'>
-								<h3 className='text-xl font-inter'>Tech Stack: {project.stack}</h3>
-								<ul className='list-disc list-inside font-inter flex flex-col gap-y-2'>
-									{project.description.map((point,idx)=>
-										<li key={idx}>{point}</li>
-									)}
-								</ul>
-								<div className='flex justify-around w-full font-worksans underline underline-offset-2'>
-									{ project.deployment!=="" && 
-									<Link href={project.deployment} target='_blank' className='hover:text-red'>Live Link</Link>}
-									{ project.repository!=="" &&
-									<Link href={project.repository} target='_blank' className='hover:text-red'>Source Code</Link>}
-								</div>
-							</div>
-							<Image src={project.image} alt={project.title} width={600} height={300} className='px-3 sm:px-0 aspect-auto right-image' ref={(ref)=>{projectRightImages.current[ind]=ref}} />
+			className="slider-container relative w-full min-h-[75svh] sm:h-[180vh] overflow-hidden bg-[radial-gradient(#e5e7eb10_1px,transparent_1px)] [background-size:26px_26px]"
+			onClick={() => handleClick()}>
+				<h1 className="text-white text-4xl sm:text-5xl font-inter absolute top-5 left-1/2 -translate-x-1/2 font-bold">Projects</h1>
+			<div
+				className="slider absolute top-[12vh] sm:top-0 w-full min-h-[60vh] sm:h-[180vh] overflow-hidden"
+				ref={sliderRef}>
+				{projects.map((project) => (
+					<div
+						key={project.id}
+						className="slider-card overflow-hidden bg-black rounded-[7px] flex flex-col items-center border border-zinc-500/30 w-[80%] sm:w-[65%] h-[275px] sm:h-[500px]">
+						<div className="grid grid-cols-3 items-center px-2 sm:px-6 text-white w-full font-dmsans py-2 border-b border-b-zinc-500/30 text-sm sm:text-base">
+							{project.deployment ? (
+								<Link href={project.deployment} className="w-fit" target="_blank">Live Link</Link>
+							) : (<Link href={project.demo} className="w-fit" target="_blank">Demo</Link>)}
+							<p className="font-medium text-center justify-self-center text-base sm:text-lg">
+								{project.title}
+							</p>
+							{project.repository && (
+								<Link href={project.repository} className="justify-self-end w-fit text-right" target="_blank">
+									Repo
+								</Link>
+							)}
+						</div>
+
+						<div className="image-container w-full">
+							<Image
+								src={project.image}
+								alt={project.title}
+								height={500}
+								width={500}
+								className="w-full h-auto"
+							/>
+						</div>
 					</div>
-				)}
+				))}
 			</div>
 		</div>
-    );
+	);
 }
 
-export default Page
+export default Page;
